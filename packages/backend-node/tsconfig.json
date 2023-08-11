@@ -1,0 +1,25 @@
+{
+  "ts-node": { "files": true },
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "types": ["node", "jest"],
+    "noEmitOnError": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+
+    "composite": true,
+    "incremental": true,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src", "src/**/*.json"]
+}
