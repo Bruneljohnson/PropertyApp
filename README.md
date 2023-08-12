@@ -14,6 +14,8 @@ Please read the frontend README file[HERE](https://github.com/Bruneljohnson/Prop
 $ cd packages
 $ cd frontend-react
 $ npm install
+$ npx dotenv-vault login
+$ npx dotenv-vault pull
 $ npm start
 ```
 
@@ -27,6 +29,8 @@ Please read the Backend README file [HERE](https://github.com/Bruneljohnson/Prop
 $ cd packages
 $ cd backend-node
 $ npm install
+$ npx dotenv-vault login
+$ npx dotenv-vault pull
 $ npm start
 ```
 
