@@ -4,3 +4,7 @@ coverage
 .git
 .gitignore
 README.md
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

@@ -66,6 +66,7 @@ You'll need to clone the Repository
 $ git clone https://github.com/Bruneljohnson/PropertyApp.git
 $ cd packages/backend-node
 $ npm install
+$ npm dotenv-vault pull
 ```
 
 ### Run App
