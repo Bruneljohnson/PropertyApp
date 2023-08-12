@@ -108,7 +108,7 @@ _Please build the image the first time and rebuild it each time the project chan
 Go into the root folder of the project, and also make sure no instance of the app is running on this machine before running the below:
 
 ```bash
-$ docker run -d -p 8080:80 --name propertyappserver {your-dockerhub-username}/propertyapp-backend:latest
+$ docker run -d --env-file ./.env -p 8080:8080 --name propertyappserver {your-dockerhub-username}/propertyapp-backend:latest
 ```
 
 Once the server is up and running, you can also take a look at the [RESTAPI endpoint](#restapi-endpoint) and [RESTAPI docs](#restapi-docs) resources to see how to call the endpoint in your application or from the command-line, and what results to expect.
