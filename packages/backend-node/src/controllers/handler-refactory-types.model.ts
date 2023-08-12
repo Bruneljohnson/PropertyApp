@@ -14,4 +14,4 @@ export type ServiceGetAllDocs = (
       },
 ) => Promise<ISQL3PropertySchema[]>;
 
-export type ServiceGetOneDoc = (id: string) => Promise<PropertyListing>;
+export type ServiceGetOneDoc = (id: string) => Promise<ISQL3PropertySchema>;

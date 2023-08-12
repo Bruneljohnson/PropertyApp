@@ -61,7 +61,10 @@ describe("get single property listing", () => {
   it("Should return a single property listing using id from DB", async () => {
     const listing = await PropertyListing.findAll();
 
-    const result = await returnListingByID(listing[0].getDataValue("id"));
+    const result = (await returnListingByID(
+      listing[0].getDataValue("id"),
+    )) as unknown as PropertyListing;
+    console.log(result);
     const id = result.getDataValue("id");
     if (result) {
       expect(id).toEqual(listing[0].getDataValue("id"));

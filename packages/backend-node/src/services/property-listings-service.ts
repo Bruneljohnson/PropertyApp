@@ -46,9 +46,11 @@ export const filterAllListings = async (
  * @return {Promise<ISQL3PropertySchema>}
  */
 export const returnListingByID = async (id: string) => {
-  const listing = await PropertyListing.findOne({ where: { id } });
+  const listing = (await PropertyListing.findOne({
+    where: { id },
+  })) as unknown as ISQL3PropertySchema;
 
   if (!listing) throw new AppError(`No property listing found with that ID`, 404);
-
-  return listing;
+  const signedDoc = await getSignedUrlsForS3([listing]);
+  return signedDoc[0];
 };
