@@ -6,7 +6,7 @@ Project to provide users the ability to view current properties on the market an
 
 ## Frontend
 
-Please read the frontend README file[HERE](https://git.core.and-digital.com/hamilton/apollo/-/blob/main/web/README.md)
+Please read the frontend README file[HERE](https://github.com/Bruneljohnson/PropertyApp/blob/main/packages/frontend-react/README.md)
 
 ### Frontend Quickstart
 
@@ -19,7 +19,7 @@ $ npm start
 
 ## Backend
 
-Please read the Backend README file [HERE](https://git.core.and-digital.com/hamilton/apollo/-/blob/main/api/README.md)
+Please read the Backend README file [HERE](https://github.com/Bruneljohnson/PropertyApp/blob/main/packages/backend-node/README.md)
 
 ### Backend Quickstart
 

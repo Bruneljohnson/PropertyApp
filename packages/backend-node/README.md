@@ -166,4 +166,4 @@ $ cd api
 $ npm run clear-jest
 ```
 
-[Back to ToC](#propertyapp-typescript-express-backend-serverr)
+[Back to ToC](#propertyapp-typescript-express-backend-server)
