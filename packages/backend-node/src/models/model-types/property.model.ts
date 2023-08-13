@@ -4,7 +4,7 @@ export interface ISQL3PropertySchema {
   bedrooms: string;
   bathrooms: string;
   livingrooms: string;
-  description: string;
+  summary: string;
   price: string;
   imageName: string;
   imageUrl: string;

@@ -16,7 +16,6 @@ if (process.env.NODE_ENV !== "test") {
       address: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           len: {
             args: [2, 60],
@@ -24,10 +23,9 @@ if (process.env.NODE_ENV !== "test") {
           },
         },
       },
-      description: {
+      summary: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           len: {
             args: [2, 200],
@@ -87,14 +85,14 @@ if (process.env.NODE_ENV === "test") {
           },
         },
       },
-      description: {
+      summary: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
           len: {
-            args: [2, 200],
-            msg: "Description must be longer than 2 and less than 200 characters.",
+            args: [2, 400],
+            msg: "Description must be longer than 2 and less than 400 characters.",
           },
         },
       },

@@ -6,7 +6,7 @@ const createTestListing = async (name: string, changeStr: string) => {
   const listingSchema: ISQL3PropertySchema = {
     id: uuidv4(),
     address: `${name} address, ${name} city, te10 4st`,
-    description: `A lovely 3 bedroom terrace house based in a leafy green area in london.`,
+    summary: `A lovely 3 bedroom terrace house based in a leafy green area in london.`,
     bedrooms: "3",
     bathrooms: "3",
     livingrooms: "3",
