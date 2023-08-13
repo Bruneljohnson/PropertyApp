@@ -86,7 +86,7 @@ export const getSignedUrlsForS3 = async (documents: ISQL3PropertySchema[]) => {
         Bucket: bucketName,
         Key: doc.imageName,
       }),
-      { expiresIn: 120 }, // 120 seconds
+      { expiresIn: 300 }, // 300 seconds
     );
   }
 

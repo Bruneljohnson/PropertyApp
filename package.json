@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "lerna run start",
-    "fe-start": "npm run start -w @propertyapp/frontend-react",
+    "fe-start": "npm run start -w @propertyapp/frontend-tsreact",
     "be-start": "npm run start -w @propertyapp/backend-node",
     "test": "lerna run --scope=@propertyapp/backend-node test",
     "new-version": "lerna -version --conventional-commits --yes",

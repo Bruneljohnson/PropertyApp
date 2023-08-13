@@ -1,5 +1,9 @@
 # dependencies
-node_modules
+node_modules/
+lerna-debug.log
+npm-debug.log
+packages/*/lib
+.idea
 
 # production
 build

@@ -12,7 +12,7 @@ Please read the frontend README file[HERE](https://github.com/Bruneljohnson/Prop
 
 ```bash
 $ cd packages
-$ cd frontend-react
+$ cd frontend-tsreact
 $ npm install
 $ npx dotenv-vault login
 $ npx dotenv-vault pull
