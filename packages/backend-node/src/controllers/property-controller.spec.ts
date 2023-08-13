@@ -35,6 +35,13 @@ describe("POST /api/listings", () => {
       .post(apiUrl)
       .field("id", "")
       .field("address", `mike's address, mike's city, te10 4st`)
+      .field(
+        "description",
+        `A lovely 3 bedroom terrace house based in a leafy green area in london.`,
+      )
+      .field("bedrooms", `3`)
+      .field("bathrooms", `3`)
+      .field("livingrooms", `3`)
       .field("price", "£500,000")
       .field("imageUrl", "")
       .attach("imageName", path.resolve(__dirname, "../__mocks__/test-assets/test-house.jpeg"));

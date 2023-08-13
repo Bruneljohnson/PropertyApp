@@ -20,9 +20,32 @@ if (process.env.NODE_ENV !== "test") {
         validate: {
           len: {
             args: [2, 60],
-            msg: "Address must be longer than 2 characters and less than 60",
+            msg: "Address must be longer than 2 and less than 60 characters.",
           },
         },
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: {
+            args: [2, 200],
+            msg: "Description must be longer than 2 and less than 200 characters.",
+          },
+        },
+      },
+      bedrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      bathrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      livingrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       price: {
         type: DataTypes.STRING,
@@ -63,6 +86,29 @@ if (process.env.NODE_ENV === "test") {
             msg: "Address must be longer than 2 characters and less than 60",
           },
         },
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: {
+            args: [2, 200],
+            msg: "Description must be longer than 2 and less than 200 characters.",
+          },
+        },
+      },
+      bedrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      bathrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      livingrooms: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       price: {
         type: DataTypes.STRING,
