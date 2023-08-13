@@ -1,4 +1,7 @@
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import BathtubIcon from '@mui/icons-material/Bathtub';
+import BedIcon from '@mui/icons-material/Bed';
+import WeekendIcon from '@mui/icons-material/Weekend';
 import { Box, Chip, IconButton, styled, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -76,15 +79,26 @@ export const ListingListItem = ({
         flexWrap="wrap"
         sx={{ listStyle: "none" }}
       >
-        <ChipListItem>
-          <Chip label={`${livingrooms} Living Room${Number(livingrooms) >1 ? "s":""}`} size="medium" />
-        </ChipListItem>
-        <ChipListItem>
-          <Chip label={`${bedrooms} Bedroom${Number(bedrooms) >1 ? "s":""}`} size="medium" />
-        </ChipListItem>
-        <ChipListItem>
-          <Chip label={`${bathrooms} Bathroom${Number(bathrooms) >1 ? "s":""}`} size="medium" />
-        </ChipListItem>
+        <Box display="flex" justifyContent="center" gap={0.5}>
+        <ChipListItem  >
+          <Chip label={`${livingrooms}`} size="medium" />
+          </ChipListItem>
+          <WeekendIcon fontSize="large"/>
+        </Box>
+
+        <Box display="flex" justifyContent="center" gap={0.5} >
+        <ChipListItem  >
+          <Chip label={`${bedrooms}`} size="medium" />
+          </ChipListItem>
+          <BedIcon fontSize="large"/>
+        </Box>
+
+        <Box display="flex" justifyContent="center" gap={0.5} >
+        <ChipListItem  >
+          <Chip label={`${bathrooms}`} size="medium" />
+          </ChipListItem>
+          <BathtubIcon fontSize="large"/>
+        </Box>
       </Box>
 
       <IconButton component={Link} to={id} color="secondary" size="large" sx={{ ml: "auto" }}>
