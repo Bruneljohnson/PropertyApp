@@ -25,6 +25,10 @@ describe("create property listing", () => {
   const listingSchema: ISQL3PropertySchema = {
     id: "",
     address: `steve's address, steve's city, te10 4st`,
+    summary: `A lovely 3 bedroom terrace house based in a leafy green area in london.`,
+    bedrooms: "3",
+    bathrooms: "3",
+    livingrooms: "3",
     price: "£500,000",
     imageName: "073adf885d49cb19ee078e2cb13a9d2e8c240348133db0dc7a53f30168af02b9.jpeg",
     imageUrl: "",

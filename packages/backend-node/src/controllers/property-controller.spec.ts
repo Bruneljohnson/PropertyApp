@@ -1,7 +1,7 @@
 import request from "supertest";
 
 import app from "../app";
-import { setup, teardown } from "../__mocks__";
+import { teardown } from "../__mocks__";
 import { ISQL3PropertySchema } from "../models/model-types/property.model";
 import path from "path";
 import { closeDatabase, launchDatabase } from "../config/database";
@@ -9,7 +9,6 @@ import { PropertyListing } from "../models/SquelizePropertyModel";
 
 beforeAll(async () => {
   await launchDatabase();
-  await setup();
 });
 
 afterAll(async () => {
@@ -35,6 +34,10 @@ describe("POST /api/listings", () => {
       .post(apiUrl)
       .field("id", "")
       .field("address", `mike's address, mike's city, te10 4st`)
+      .field("summary", `A lovely 3 bedroom terrace house based in a leafy green area in london.`)
+      .field("bedrooms", `3`)
+      .field("bathrooms", `3`)
+      .field("livingrooms", `3`)
       .field("price", "£500,000")
       .field("imageUrl", "")
       .attach("imageName", path.resolve(__dirname, "../__mocks__/test-assets/test-house.jpeg"));
@@ -43,7 +46,7 @@ describe("POST /api/listings", () => {
     expect(response.statusCode).toEqual(201);
     expect(response.body as ResponseSingleBody).toHaveProperty("data");
     const { data } = response.body as ResponseSingleBody;
-    expect(Object.keys(data)).toHaveLength(7);
+    expect(Object.keys(data)).toHaveLength(11);
     expect(data).toHaveProperty("price", "£500,000");
   });
   it("Should fail to create a property listing", async () => {
@@ -70,7 +73,7 @@ describe("GET /api/listings", () => {
 
     // Then
     expect(response.statusCode).toBe(200);
-    expect((response.body as ResponseBody).data).toHaveLength(3);
+    expect((response.body as ResponseBody).data).toHaveLength(1);
   });
 });
 

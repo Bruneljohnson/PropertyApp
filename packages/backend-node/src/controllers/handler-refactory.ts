@@ -22,11 +22,15 @@ export const createOne = (Service: ServiceCreateOneDoc) => {
         document = await Service(req.body);
       } else {
         const body = Object.assign({}, req.body) as ISQL3PropertySchema;
-        const { id, address, price, imageUrl } = body;
+        const { id, address, price, imageUrl, summary, bathrooms, bedrooms, livingrooms } = body;
         document = await Service({
           id,
           address,
           price,
+          summary,
+          bathrooms,
+          bedrooms,
+          livingrooms,
           imageName: req.photo,
           imageUrl,
         });
