@@ -17,7 +17,7 @@ export const generateListingFilters = (data: PropertyListingType[]): GenerateLis
   });
 
   const priceFilterOptions: ListingFilterOptionType[] = Array.from(pricesSet).map(price => ({
-    label: `£${price}`,
+    label: `£${Number(price).toLocaleString()}`,
     key: kebabCase(price),
   }));
   const bedroomFilterOptions: ListingFilterOptionType[] = Array.from(bedroomsSet).map(bedroom => ({

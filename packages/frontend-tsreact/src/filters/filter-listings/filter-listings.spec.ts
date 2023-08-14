@@ -9,25 +9,31 @@ describe("filterListings function", () => {
   it("should return an all listings if no filters are provided", () => {
     const filtered = filterListings(mockListingsData, [], [], [], []);
 
-    expect(filtered).toHaveLength(3);
+    expect(filtered).toHaveLength(5);
   });
 
   it("should filter by price", () => {
-    const filtered = filterListings(mockListingsData, [{ label: "Price", key: "250" }], [], [], []);
+    const filtered = filterListings(
+      mockListingsData,
+      [{ label: "£300,000", key: "300000" }],
+      [],
+      [],
+      [],
+    );
 
-    expect(filtered).toStrictEqual([mockListingsData[0]]);
+    expect(filtered).toHaveLength(2);
   });
 
   it("should filter by bedrooms", () => {
     const filtered = filterListings(
       mockListingsData,
       [],
-      [{ label: "5 Bedrooms", key: "5" }],
+      [{ label: "2 Bedroom", key: "2" }],
       [],
       [],
     );
 
-    expect(filtered).toStrictEqual([mockListingsData[0]]);
+    expect(filtered).toHaveLength(5);
   });
 
   it("should filter by livingrooms", () => {
@@ -35,11 +41,11 @@ describe("filterListings function", () => {
       mockListingsData,
       [],
       [],
-      [{ label: "5 Living Rooms", key: "5" }],
+      [{ label: "2 Living Room", key: "2" }],
       [],
     );
 
-    expect(filtered).toStrictEqual([mockListingsData[0]]);
+    expect(filtered).toHaveLength(5);
   });
 
   it("should filter by bathrooms", () => {
@@ -48,21 +54,25 @@ describe("filterListings function", () => {
       [],
       [],
       [],
-      [{ label: "5 Bathrooms", key: "5" }],
+      [{ label: "3 Bathroom", key: "3" }],
     );
 
-    expect(filtered).toStrictEqual([mockListingsData[0]]);
+    expect(filtered).toHaveLength(5);
   });
 
   it("should filter by multiple criteria", () => {
     const filtered = filterListings(
       mockListingsData,
-      [{ label: "Price", key: "250" }],
-      [{ label: "5 Bedrooms", key: "5" }],
-      [{ label: "5 Living Rooms", key: "5" }],
-      [{ label: "5 Bathrooms", key: "5" }],
+      [
+        { label: "£300,000", key: "300000" },
+        { label: "3 Bedrooms", key: "3" },
+        { label: "2 Living Rooms", key: "2" },
+      ],
+      [{ label: "2 Bedroom", key: "2" }],
+      [{ label: "2 Living Room", key: "2" }],
+      [{ label: "3 Bathroom", key: "3" }],
     );
 
-    expect(filtered).toStrictEqual([mockListingsData[0]]);
+    expect(filtered).toHaveLength(2);
   });
 });

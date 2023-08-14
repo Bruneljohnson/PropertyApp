@@ -1,6 +1,8 @@
 export interface ISQL3PropertySchema {
   id: string;
-  address: string;
+  streetName: string;
+  city: string;
+  postcode: string;
   bedrooms: string;
   bathrooms: string;
   livingrooms: string;

@@ -43,6 +43,7 @@ You will also need the environment variables.
 From this example, the next steps would be the following:
 
 - Implement Production flow
+- Add type of property to schema
 - Implement a user account where people can see their; currents listings, progress updates, notifications, and todo list
 - Allow multiple images per listing
 - Implement authentication and privacy, GDPR and data handling policies.

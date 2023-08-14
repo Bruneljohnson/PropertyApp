@@ -66,7 +66,7 @@ export const FormResetButton = ({
           handleClose();
         }}
       >
-        Yes, delete listing.
+        Yes, delete.
       </Button>
     </DialogActions>
   </Dialog>

@@ -33,7 +33,9 @@ describe("POST /api/listings", () => {
     const response = await request(app)
       .post(apiUrl)
       .field("id", "")
-      .field("address", `mike's address, mike's city, te10 4st`)
+      .field("streetName", `mike's street`)
+      .field("city", `mike's city`)
+      .field("postcode", `te10 4st`)
       .field("summary", `A lovely 3 bedroom terrace house based in a leafy green area in london.`)
       .field("bedrooms", `3`)
       .field("bathrooms", `3`)
@@ -91,7 +93,9 @@ describe("GET /api/listings/:id", () => {
     expect(response.statusCode).toEqual(200);
     expect(response.body).not.toBeNull();
     const userReturned = (response.body as ResponseSingleBody).data;
-    expect(userReturned).toHaveProperty("address", listing[0].getDataValue("address"));
+    expect(userReturned).toHaveProperty("streetName", listing[0].getDataValue("streetName"));
+    expect(userReturned).toHaveProperty("city", listing[0].getDataValue("city"));
+    expect(userReturned).toHaveProperty("postcode", listing[0].getDataValue("postcode"));
   });
 
   it("Should fail if ID is incorrect.", async () => {

@@ -13,13 +13,33 @@ if (process.env.NODE_ENV !== "test") {
         primaryKey: true,
         allowNull: false,
       },
-      address: {
+      streetName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: {
-            args: [2, 60],
-            msg: "Address must be longer than 2 and less than 60 characters.",
+            args: [2, 80],
+            msg: "Street name must be longer than 2 and less than 80 characters.",
+          },
+        },
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [2, 80],
+            msg: "City name must be longer than 2 and less than 80 characters.",
+          },
+        },
+      },
+      postcode: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [2, 10],
+            msg: "Postcode must be longer than 2 and less than 10 characters.",
           },
         },
       },
@@ -28,8 +48,8 @@ if (process.env.NODE_ENV !== "test") {
         allowNull: false,
         validate: {
           len: {
-            args: [2, 200],
-            msg: "Description must be longer than 2 and less than 200 characters.",
+            args: [2, 300],
+            msg: "Description must be longer than 2 and less than 300 characters.",
           },
         },
       },
@@ -75,25 +95,43 @@ if (process.env.NODE_ENV === "test") {
         primaryKey: true,
         allowNull: false,
       },
-      address: {
+      streetName: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           len: {
-            args: [2, 60],
-            msg: "Address must be longer than 2 characters and less than 60",
+            args: [2, 80],
+            msg: "Street name must be longer than 2 and less than 80 characters.",
+          },
+        },
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [2, 80],
+            msg: "City name must be longer than 2 and less than 80 characters.",
+          },
+        },
+      },
+      postcode: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [2, 10],
+            msg: "Postcode must be longer than 2 and less than 10 characters.",
           },
         },
       },
       summary: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
           len: {
-            args: [2, 400],
-            msg: "Description must be longer than 2 and less than 400 characters.",
+            args: [2, 300],
+            msg: "Description must be longer than 2 and less than 300 characters.",
           },
         },
       },

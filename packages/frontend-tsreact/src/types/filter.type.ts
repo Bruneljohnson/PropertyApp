@@ -2,7 +2,9 @@ import { type ReactNode, type SetStateAction } from "react";
 
 export type PropertyListingType = {
   id: string;
-  address: string;
+  streetName: string;
+  city: string;
+  postcode: string;
   summary: string;
   bedrooms: string;
   livingrooms: string;

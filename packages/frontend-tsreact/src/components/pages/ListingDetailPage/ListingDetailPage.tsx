@@ -13,7 +13,7 @@ export const ListingDetailPage = (): JSX.Element | null => {
     `${BASE_URL}/${DATA_URLS.listings}/${id}`,
   );
   if (res) {
-    return <ListingDetailTemplate data={res.data} loading={loading} error={Boolean(error)} />;
+    return <ListingDetailTemplate data={res.data as unknown as PropertyListingType} loading={loading} error={Boolean(error)} />;
   }
 
   return null;

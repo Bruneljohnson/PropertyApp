@@ -10,5 +10,5 @@ it("renders successfully", () => {
     </ListingFiltersProvider>,
   );
 
-  expect(document.body).toHaveTextContent("Prices");
+  expect(document.body).toHaveTextContent("PriceResetBedroomsResetLiving roomsResetBathroomsReset");
 });

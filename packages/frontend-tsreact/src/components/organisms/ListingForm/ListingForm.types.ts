@@ -1,7 +1,12 @@
 import { type AnyObject, type ObjectSchema } from "yup";
 
+import { type PropertyListingType } from "../../../types";
+
 export type ListingFormProps = {
   title: string;
+};
+export type ListingFormResponse = {
+  response: { data: { data: PropertyListingType } };
 };
 
 export type ValidationSchemaType = ObjectSchema<

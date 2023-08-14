@@ -35,7 +35,7 @@ export const FormImageField = ({
   }, [didUpload]);
 
   return (
-    <Field name={name}>
+    <Field name={name} accept="image/*">
       {({ field, form }) => {
         const { value, onBlur } = field;
         const { setFieldValue, errors } = form;
@@ -45,10 +45,12 @@ export const FormImageField = ({
         const handleChange = (imgFile: File) => {
           if (isValidImageFileType(imgFile.type)) {
             setFieldValue(name, URL.createObjectURL(imgFile));
+            setFieldValue("imageName", imgFile);
             setImageError(false);
             setDidUpload(true);
           } else {
-            setFieldValue(name, "");
+            setFieldValue(name,"");
+            setFieldValue("imageName","");
             setImageError(true);
             setDidUpload(false);
           }

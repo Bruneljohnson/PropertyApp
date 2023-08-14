@@ -3,7 +3,7 @@ export const LISTING_ERROR_MESSAGE = {
   message: "Failed to connect to server",
 };
 
-export const LISTING_SEARCH_KEYS: string[] = ["price", "bathrooms", "livingrooms", "bedrooms"];
+export const LISTING_SEARCH_KEYS: string[] = ["price", "postcode", "city"];
 
 const { REACT_APP_BACKEND_BASE_URL } = process.env;
 

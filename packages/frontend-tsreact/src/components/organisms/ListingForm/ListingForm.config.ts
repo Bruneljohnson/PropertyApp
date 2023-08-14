@@ -10,7 +10,9 @@ export const axiosConfig = {
 
 export const CREATE_LISTING_FORM_INITIAL_VALUES = {
   id: "",
-  address: "",
+  streetName: "",
+  city: "",
+  postcode: "",
   summary: "",
   bedrooms: "",
   livingrooms: "",
@@ -25,8 +27,9 @@ export const CREATE_LISTING_FORM_INITIAL_VALUES = {
 const requiredMessage = "This field is required";
 
 const step1 = {
-  address: string().required(requiredMessage),
-  price: string().required(requiredMessage),
+  streetName: string().required(requiredMessage),
+  city: string().required(requiredMessage),
+  postcode: string().required(requiredMessage),
   bedrooms: string().required(requiredMessage),
   livingrooms: string().required(requiredMessage),
   bathrooms: string().required(requiredMessage),
@@ -35,6 +38,7 @@ const step1 = {
 const step2 = {
   imageUrl: string().required(requiredMessage),
   summary: string().required(requiredMessage),
+  price: string().required(requiredMessage),
 };
 
 export const schemaMap = ["step1", "step2", "step2"];

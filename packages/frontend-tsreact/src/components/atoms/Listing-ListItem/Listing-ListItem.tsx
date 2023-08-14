@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 import { type ListingListItemProps } from "./Listing-ListItem.type";
 
-const ChipListItem = styled("li")(({ theme }) => ({
+export const ChipListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
 
 const imageSize = 200;
-const capitalizeFirstLetterOfEachWord = (str: string) => {
+export const capitalizeFirstLetterOfEachWord = (str: string):string => {
   return str
     .split(" ")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -21,9 +21,12 @@ const capitalizeFirstLetterOfEachWord = (str: string) => {
 
 export const ListingListItem = ({
   id,
-  address,
+  streetName,
+  city,
+  postcode,
   imageName,
   imageUrl,
+  price,
   summary,
   bedrooms,
   livingrooms,
@@ -63,23 +66,33 @@ export const ListingListItem = ({
       alignItems="center"
     >
       <Box display="flex" flexDirection="column" minWidth="200px" width="75%">
+        <Typography component="h2" variant="h6" color="secondary.alt" textAlign="left">
+          {`£${Number(price).toLocaleString()}`}
+        </Typography>
         <Typography component="h3" variant="h6" color="grey.900" textAlign="left">
           {capitalizeFirstLetterOfEachWord(`${bedrooms} Bedroom Property`)}
         </Typography>
-        <Typography variant="subtitle1" textAlign="left">{capitalizeFirstLetterOfEachWord(address)}</Typography>
+        <Typography variant="subtitle1" color="grey.600" textAlign="left">{`${capitalizeFirstLetterOfEachWord(streetName)}, ${postcode.toUpperCase().split(" ")[0]}, ${capitalizeFirstLetterOfEachWord(city)} `}</Typography>
       </Box>
-      <Typography component="p" fontWeight="normal" variant="h6" minWidth="300px" textAlign="left" width="75%" fontSize={14}>
-        {summary}
-      </Typography>
+
+      <Box display="flex" flexDirection="column" minWidth="200px" width="75%">
+        
+        <Typography component="h4" variant="h6" color="grey.700" textAlign="left">
+          {capitalizeFirstLetterOfEachWord(`find out more...`)}
+        </Typography>
+        <Typography variant="subtitle1" color="grey.600" textAlign="left">{summary}</Typography>
+      </Box>
 
       <Box
         component="ul"
         display="flex"
         justifyContent="flex-start"
+        flexDirection="column"
         flexWrap="wrap"
         sx={{ listStyle: "none" }}
+        mr={3}
       >
-        <Box display="flex" justifyContent="center" gap={0.5}>
+        <Box display="flex"  justifyContent="center" gap={0.5}>
         <ChipListItem  >
           <Chip label={`${livingrooms}`} size="medium" />
           </ChipListItem>

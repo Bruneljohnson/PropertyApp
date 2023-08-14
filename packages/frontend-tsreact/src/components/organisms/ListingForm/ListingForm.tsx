@@ -10,6 +10,7 @@ import {
   Stepper,
   Typography,
 } from "@mui/material";
+import axios from "axios";
 import { Form, Formik, type FormikProps } from "formik";
 import { isEmpty } from "lodash";
 import {useCallback, useEffect, useRef, useState } from "react";
@@ -54,32 +55,23 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
     }
   }, []);
 
-  const handleSubmit = async formData => {
-    const payload = {
-      ...formData,
-    };
+  const handleSubmit = async (values) => {
+    const clearImageUrlField = { ...values, imageUrl: "" }
+    const formData = new FormData();
 
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    };
+    for (const [key, value] of Object.entries(clearImageUrlField)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const fieldValue = value as any;
+        formData.append(`${key}`, fieldValue);
+      }
 
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_BASE_URL}/listings`,
-        requestOptions,
-      );
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_URL}/listings`, formData, {headers: {
+      "Content-Type": "multipart/form-data",},});
 
-      if (response.ok) {
-        const { data } = await response.json();
-        navigate(`/listings/${data.id}`);
-      } else {
-        const errorData = await response.json();
-        console.error("Error:", errorData.message);
-      }
+      const newListing: PropertyListingType = response.data.data;
+      navigate(`/listings/${newListing.id}`);
+    
     } catch (error) {
       console.error("Fetch error:", error);
     }
@@ -96,6 +88,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
   return (
     <>
       <Formik
+        
         innerRef={formikRef}
         initialValues={CREATE_LISTING_FORM_INITIAL_VALUES}
         validationSchema={getValidationSchema(validationSchema)}
@@ -139,6 +132,8 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                 onClick={() => {
                   resetForm();
                   changeStep(0);
+                  setValidatedSteps([null, null, null])
+                  setValidationSchema("step1")
                 }}
               />
 
@@ -152,6 +147,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
               >
                 <Typography
                   display="flex"
+                  mt={1}
                   gridColumn={2}
                   justifySelf="center"
                   alignSelf="center"
@@ -163,7 +159,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
 
                 <IconButton
                   sx={{ justifySelf: "right", gridColumn: "3", fontSize: "50px" }}
-                  size="large"
+                  size="small"
                   onClick={() => {
                     setOpenDialog(true);
                   }}
@@ -172,7 +168,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                 </IconButton>
               </Box>
 
-              <Stepper activeStep={activeStep} alternativeLabel sx={{ width: "960px", mx: "auto" }}>
+              <Stepper activeStep={activeStep} alternativeLabel sx={{ width: "960px", mx: "auto", marginBottom:"30px" }}>
                 {steps.map((label, index) => {
                   const isError = validatedSteps[index] === false;
                   const labelProps: {
@@ -223,18 +219,24 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                     {activeStep === 0 && (
                       <>
                         <FormInputField
-                          name="address"
-                          label="Property Address"
-                          placeholder="Blackburn Lane, Barking, IG11 0TH"
+                          name="streetName"
+                          label="Street Name"
+                          placeholder="Blackburn Lane, Barking"
                           required
                         />
                         <FormInputField
-                          name="price"
-                          label="Desired Selling Price - GBP"
-                          placeholder="300000"
+                          name="city"
+                          label="City"
+                          placeholder="London"
                           required
                         />
-
+                        <FormInputField
+                          name="postcode"
+                          label="Postcode"
+                          placeholder="IG11 0TH"
+                          required
+                        />
+                        
                         <FormSelectField
                           name="bedrooms"
                           label="No. Bedrooms"
@@ -280,11 +282,17 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                     )}
                     {activeStep === 1 && (
                       <>
-                        <FormImageField name="imageName" label="Image" required />
+                        <FormImageField name="imageUrl" label="Image" required />
                         <FormInputField
                           name="summary"
                           label="Tell Us About Your Property"
                           placeholder="3 bedroom apartment that is located in West London."
+                          required
+                        />
+                        <FormInputField
+                          name="price"
+                          label="Desired Selling Price - GBP"
+                          placeholder="300000"
                           required
                         />
                       </>

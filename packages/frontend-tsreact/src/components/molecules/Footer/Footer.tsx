@@ -1,27 +1,13 @@
-import { Box, Container, Link, Stack } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Box, Container, Typography} from "@mui/material";
 
-import { NAVIGATION_ITEMS } from "../../../config";
-import { Logo } from "../../atoms/Logo";
+import logoImage from "../../../assets/PropertyApp.png";
+import { Image } from "../../atoms/Image";
 
 export const Footer = (): JSX.Element => (
   <Box component="footer" mt={4} display="flex" p={4} bgcolor="primary.main">
-    <Container maxWidth="xl" sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Stack direction="row" alignItems="center" spacing={2} display="flex">
-        {NAVIGATION_ITEMS.map(({ label, url }, i) => (
-          <Link
-            underline="hover"
-            variant="body2"
-            key={i}
-            color="#ffffff"
-            component={RouterLink}
-            to={url}
-          >
-            {label}
-          </Link>
-        ))}
-      </Stack>
-      <Logo />
+    <Container maxWidth="xl" sx={{ display: "flex", flexDirection: "column", justifyContent: "center",alignItems:"center", gap:"10px" }}>
+      <Image image={logoImage} imageSizeNo={50} alt="PropertyApp logo"/>
+      <Typography fontSize="small" style={{ color: "#fff" }}>&#169; Copyright of The PropertyApp 2023 </Typography>
     </Container>
   </Box>
 );

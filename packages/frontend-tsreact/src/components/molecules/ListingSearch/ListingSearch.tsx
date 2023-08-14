@@ -67,7 +67,7 @@ export const ListingSearch = ({ loading = true }: ListingSearchProps): JSX.Eleme
           onChange={event => {
             setSearchValue(event.target.value);
           }}
-          placeholder="Search by price, bedrooms, bathrooms or living rooms"
+          placeholder="Search Area e.g London or W3 "
           disabled={loading}
           sx={{ flex: 1 }}
           size="medium"
@@ -123,7 +123,7 @@ export const ListingSearch = ({ loading = true }: ListingSearchProps): JSX.Eleme
                       },
                     }}
                   >
-                    <Typography>{item.price}</Typography>
+                    <Typography>{item.postcode}</Typography>
                   </Box>
 
                   {matches && (

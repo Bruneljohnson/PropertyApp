@@ -24,7 +24,9 @@ afterAll(async () => {
 describe("create property listing", () => {
   const listingSchema: ISQL3PropertySchema = {
     id: "",
-    address: `steve's address, steve's city, te10 4st`,
+    streetName: `steve's address`,
+    city: `steve's city`,
+    postcode: `te10 4st`,
     summary: `A lovely 3 bedroom terrace house based in a leafy green area in london.`,
     bedrooms: "3",
     bathrooms: "3",
