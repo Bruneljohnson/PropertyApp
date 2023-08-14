@@ -129,16 +129,22 @@ and you get an output like this: (this is the just an example of how the data lo
 
 ```json
 {
-  "status": "success",
-  "data": {
-    "id": "205a2dfb-a764-4fd0-8b78-8c830e125f4c",
-    "address": "test address, test city, te55 4st",
-    "price": "£300,000",
-    "imageName": "073adf885d49cb19ee078e2cb13a9d2e8c240348133db0de0b27f30168af02b9.jpeg",
-    "imageUrl": "https://.amazonaws.com/resignedurls",
-    "createdAt": "2023-08-10T14:59:14.292Z",
-    "updatedAt": "2023-08-10T14:59:14.292Z"
-  }
+    "status": "success",
+    "data": {
+        "id": "b646933d-a020-44c2-8fb6-da7348d0eae2",
+        "streetName": "Blackburn Lane",
+        "city": "Milton Keynes",
+        "postcode": "MK6 5DF",
+        "summary": "2 bedroom apartment located in a new build complex. Less than ten years old. Near local amenities, schools and transport network.",
+        "bedrooms": "2",
+        "bathrooms": "2",
+        "livingrooms": "1",
+        "price": "250000",
+        "imageName": "126d92b65f8f19706c8c214b55b06c9674eeefecefd95903cc25665cbca74248.jpeg",
+        "imageUrl": "https://amazonaws.com/126d92b65f8f19706c8c214b55b06c9674eeefecefd95903cc25665cbca74248.jpeg?X-Amz-Algorithm&x-id=GetObject",
+        "createdAt": "2023-08-14T05:58:19.413Z",
+        "updatedAt": "2023-08-14T05:58:19.413Z"
+    }
 }
 ```
 
