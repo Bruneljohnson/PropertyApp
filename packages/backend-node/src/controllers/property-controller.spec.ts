@@ -48,7 +48,7 @@ describe("POST /api/listings", () => {
     expect(response.statusCode).toEqual(201);
     expect(response.body as ResponseSingleBody).toHaveProperty("data");
     const { data } = response.body as ResponseSingleBody;
-    expect(Object.keys(data)).toHaveLength(11);
+    expect(Object.keys(data)).toHaveLength(13);
     expect(data).toHaveProperty("price", "£500,000");
   });
   it("Should fail to create a property listing", async () => {
