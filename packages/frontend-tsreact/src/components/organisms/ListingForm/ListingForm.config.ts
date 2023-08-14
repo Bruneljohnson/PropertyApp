@@ -48,4 +48,4 @@ export const getValidationSchema = (step: string): ValidationSchemaType => {
   return object().shape(schema);
 };
 
-export const steps = ["Basics", "Description", "Review Listing"];
+export const steps = ["Basics", "Description", "Review"];

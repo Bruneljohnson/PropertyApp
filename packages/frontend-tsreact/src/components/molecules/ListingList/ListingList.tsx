@@ -31,7 +31,7 @@ export const ListingList = ({ loading = true, error = false }: ListingListProps)
       ) : (
         <>
           <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
-            <Typography variant="h6">
+            <Typography variant="h6" sx={{fontSize:{xs:"14px", md:"16px"}}}>
               {loading
                 ? "Loading Property Listings, please wait..."
                 : filteredListings.length > 0
@@ -39,11 +39,11 @@ export const ListingList = ({ loading = true, error = false }: ListingListProps)
                 : "Sorry, we couldn't find any property listing."}
             </Typography>
             <Button
-              disabled={loading || error}
-              component={Link}
-              to={PAGE_URLS.createListings}
-              variant="contained"
-              size="large"
+                disabled={loading || error}
+                component={Link}
+                to={PAGE_URLS.createListings}
+                variant="contained"
+                sx={{ size: { xs: "xsmall", md: "large" }, fontSize: { xs: "10px", md: "16px" }, width: { xs: "50%" }, padding:{xs:"2px"} }}
             >
               List Your Property
             </Button>

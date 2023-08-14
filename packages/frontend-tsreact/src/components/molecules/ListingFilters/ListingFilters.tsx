@@ -27,8 +27,9 @@ export const ListingFilters = ({
       borderRadius={3}
       overflow="hidden"
       border={1}
-      height="calc(100vh - 169px)"
+      height="calc(100vh - 300px)"
       borderColor="grey.300"
+      mb={3}
       sx={{
         "&:before": {
           content: "''",

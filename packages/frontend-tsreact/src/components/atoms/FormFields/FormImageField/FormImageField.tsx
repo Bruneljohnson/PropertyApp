@@ -78,16 +78,17 @@ export const FormImageField = ({
             {label && <FormLabel label={label} required={required} />}
             {value.length > 0 ? (
               <Box display="flex" width="100%" flexDirection="column" alignItems="center">
-                <CheckCircle color="secondary" sx={{ my: 3, fontSize: "75px" }} />
+                <CheckCircle color="secondary" sx={{ my: 1, fontSize:"45px" }} />
                 <Box
                   position="relative"
-                  width="300px"
-                  height="300px"
+                  
                   p={3}
                   sx={{
                     borderColor: "grey.400",
-                    borderWidth: "2px",
+                    borderWidth: "1px",
                     borderStyle: "solid",
+                    width: "100%",
+                    height:"100%"
                   }}
                 >
                   <IconButton
@@ -100,10 +101,12 @@ export const FormImageField = ({
                       bgcolor: "grey.400",
                       color: "#ffffff",
                       display: "flex",
+                      fontSize:"30px",
                       position: "absolute",
                       zIndex: 1,
                       top: 0,
                       right: 0,
+                     
                       transform: "translate(50%, -50%)",
                       "&:hover": {
                         bgcolor: "grey.500",
@@ -117,7 +120,7 @@ export const FormImageField = ({
                   >
                     <Close
                       sx={{
-                        fontSize: "35px",
+                         fontSize:"30px",
                       }}
                     />
                   </IconButton>
@@ -127,7 +130,7 @@ export const FormImageField = ({
                     height="100%"
                     sx={{ objectFit: "cover" }}
                     src={value}
-                    alt="ANDi Red Chair Profile"
+                    alt="Property Listing"
                   />
                 </Box>
               </Box>
@@ -182,13 +185,13 @@ export const FormImageField = ({
                 {imageError ? (
                   <BrokenImage
                     sx={{
-                      fontSize: "100px",
+                      fontSize:{xs: "55px", md: "100px"},
                     }}
                   />
                 ) : (
                   <CloudUploadOutlined
                     sx={{
-                      fontSize: "100px",
+                    fontSize:{xs: "55px", md: "100px"},
                     }}
                   />
                 )}

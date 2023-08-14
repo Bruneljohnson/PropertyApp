@@ -45,7 +45,9 @@ export const ListingFilter = ({
           pb: 1,
         }}
       >
-        <Typography>{title}</Typography>
+        <Typography sx={{
+          fontSize: { xs: "12px", md: "16px" }
+        }}>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails
         sx={{

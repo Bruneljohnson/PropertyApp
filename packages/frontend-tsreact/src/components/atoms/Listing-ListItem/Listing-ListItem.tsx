@@ -27,13 +27,13 @@ export const ListingListItem = ({
   imageName,
   imageUrl,
   price,
-  summary,
   bedrooms,
   livingrooms,
   bathrooms,
 }: ListingListItemProps): JSX.Element => (
   <Box
     display="flex"
+    sx={{flexDirection:{xs:"column", md:"row"}}}
     alignItems="center"
     color="grey.800"
     width="100%"
@@ -62,10 +62,11 @@ export const ListingListItem = ({
       display="flex"
       flexDirection="row"
       ml={3}
+      mt={2}
       justifyContent="center"
       alignItems="center"
     >
-      <Box display="flex" flexDirection="column" minWidth="200px" width="75%">
+      <Box display="flex" flexDirection="column" minWidth="140px" width="75%">
         <Typography component="h2" variant="h6" color="secondary.alt" textAlign="left">
           {`£${Number(price).toLocaleString()}`}
         </Typography>
@@ -73,14 +74,6 @@ export const ListingListItem = ({
           {capitalizeFirstLetterOfEachWord(`${bedrooms} Bedroom Property`)}
         </Typography>
         <Typography variant="subtitle1" color="grey.600" textAlign="left">{`${capitalizeFirstLetterOfEachWord(streetName)}, ${postcode.toUpperCase().split(" ")[0]}, ${capitalizeFirstLetterOfEachWord(city)} `}</Typography>
-      </Box>
-
-      <Box display="flex" flexDirection="column" minWidth="200px" width="75%">
-        
-        <Typography component="h4" variant="h6" color="grey.700" textAlign="left">
-          {capitalizeFirstLetterOfEachWord(`find out more...`)}
-        </Typography>
-        <Typography variant="subtitle1" color="grey.600" textAlign="left">{summary}</Typography>
       </Box>
 
       <Box

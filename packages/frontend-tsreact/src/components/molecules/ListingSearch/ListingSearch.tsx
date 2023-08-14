@@ -19,7 +19,6 @@ import { ListingFiltersContext } from "../../../providers";
 import { getCharsBetweenIndices } from "../../../utils";
 import { type ListingSearchProps } from "./ListingSearch.type";
 
-const width = "100%";
 const minMatchCharLength = 2;
 
 export const ListingSearch = ({ loading = true }: ListingSearchProps): JSX.Element => {
@@ -52,12 +51,13 @@ export const ListingSearch = ({ loading = true }: ListingSearchProps): JSX.Eleme
         }}
         sx={{
           px: 1.5,
-          height: 50,
+          height: 40,
+          width:{xs:"100%", md:"100%"},
           display: "flex",
           alignItems: "center",
+          margin:{xs:"0 0", md:"auto"},
           border: 1,
           borderColor: "grey.300",
-          width,
         }}
       >
         <Box display="flex" width={35}>

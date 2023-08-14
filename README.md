@@ -40,6 +40,8 @@ You will also need the environment variables.
 
 # APP Preview
 
+Media Queries set from 425px upwards.
+
 ![The PropertyApp ](./packages/backend-node/docs/PropertyApp.png)
 # Next Steps
 

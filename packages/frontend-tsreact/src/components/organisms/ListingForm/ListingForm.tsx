@@ -1,4 +1,4 @@
-import { ArrowBack, CancelOutlined } from "@mui/icons-material";
+import { CancelOutlined } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -138,17 +138,15 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
               />
 
               <Box
-                display="grid"
-                gridTemplateColumns="1fr 1fr 1fr"
+                sx={{ display: "grid" , gridTemplateColumns:{xs:"1fr", md:"1fr 1fr 1fr" }, flex:1}}
                 justifyContent="center"
                 mb={4}
                 position="relative"
                 width="100%"
               >
                 <Typography
-                  display="flex"
                   mt={1}
-                  gridColumn={2}
+                  sx={{ gridColumn: { md:2}, fontSize:{xs:"20px", md:"24px"} }}
                   justifySelf="center"
                   alignSelf="center"
                   variant="h5"
@@ -158,7 +156,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                 </Typography>
 
                 <IconButton
-                  sx={{ justifySelf: "right", gridColumn: "3", fontSize: "50px" }}
+                  sx={{ justifySelf: {sx:"left",md:"right"}, gridColumn:{ md:3}, fontSize: "30px", position:{xs:"absolute",md:"relative"} }}
                   size="small"
                   onClick={() => {
                     setOpenDialog(true);
@@ -168,7 +166,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                 </IconButton>
               </Box>
 
-              <Stepper activeStep={activeStep} alternativeLabel sx={{ width: "960px", mx: "auto", marginBottom:"30px" }}>
+              <Stepper activeStep={activeStep} alternativeLabel sx={{ width: {xs:"75%", md:"90%"}, mx: "auto", marginBottom:"15px" }}>
                 {steps.map((label, index) => {
                   const isError = validatedSteps[index] === false;
                   const labelProps: {
@@ -177,7 +175,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                   } = {};
                   if (isError) {
                     labelProps.optional = (
-                      <Typography variant="caption" color="error">
+                      <Typography variant="caption" color="error" fontSize={11}>
                         Failed to validate
                       </Typography>
                     );
@@ -198,10 +196,10 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                 })}
               </Stepper>
 
-              <Stack minWidth="455px" spacing={3}>
+              <Stack sx={{ width: {xs:"90%", md:"95%"}, mx: "auto" }} >
                 <Box
                   component={Form}
-                  padding={5}
+                  sx={{ padding: {xs:2, md:5}, mx: "auto", borderStyle: "solid", borderWidth: 1 }}
                   bgcolor="#ffffff"
                   borderColor="grey.400"
                   borderRadius="10px"
@@ -209,7 +207,6 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                   width="100%"
                   my={5}
                   mx="auto"
-                  sx={{ borderStyle: "solid", borderWidth: 1 }}
                 >
                   <Stack spacing={3}>
                     <Typography variant="h5" fontWeight="bold">
@@ -309,9 +306,8 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element => {
                       Please complete all required fields.
                     </Typography>
                   )}
-                  <Box mt={1} display="flex" justifyContent="space-between">
+                  <Box mt={2} display="flex" justifyContent="space-between">
                     <Button
-                      startIcon={<ArrowBack />}
                       disabled={activeStep === 0}
                       variant="outlined"
                       onClick={() => {

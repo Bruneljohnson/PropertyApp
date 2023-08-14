@@ -1,7 +1,7 @@
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import BedIcon from '@mui/icons-material/Bed';
 import WeekendIcon from '@mui/icons-material/Weekend';
-import { Box, Grid, Typography, } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { Chip } from "@mui/material";
 import { useEffect } from "react";
 
@@ -59,22 +59,24 @@ export const ListingView = ({
     <Grid
       container
       width="100%"
+      mx="auto"
       position="relative"
-      gridTemplateColumns="1fr 1fr 1fr"
+      sx={{ display:"grid", gridTemplateColumns: { xs: "1fr" },gridTemplateRows: { xs: "auto 1fr" }, alignItems:{xs:"center"}}}
       gap={1}
       
     >
-      <Grid item padding={4} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} gap={1}>
-        <Typography component="h1" variant="h6" color="gray.500" textAlign="left" fontSize={25} fontWeight="600" m={0} >
+      <Grid item sx={{ padding: { xs: 2.5, md: 4 }, gridColumn:{xs:1}, gridRow:{xs:1} }} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} gap={1}>
+        <Typography component="h1" variant="h6" color="gray.500" textAlign="left" sx={{ fontSize: { xs: 14,  md:18 } }} fontWeight="600" m={0} >
           {`${bedrooms} Bedroom Property for Sale in ${postcode.toUpperCase().split(" ")[0]}.`}
         </Typography>
-        <Grid container sx={{ display: "flex" }} boxShadow={1} overflow="hidden">
+        <Grid container sx={{ display: "flex", justifyContent:"center", alignItems:"center" }}  overflow="hidden">
           <Image image={imageUrl} imageSizeNo={550} alt="Property Main"/>
         </Grid>
       </Grid>
 
-      <Grid item padding={3} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} >  
-       <Typography component="h2" variant="h6" color="secondary.alt" textAlign="center" fontSize={30} fontWeight="600">
+      <Grid item sx={{ padding: { xs: 2.5, md: 4 }, gridColumn: { xs: 1, md:2}, gridRow: { xs: 2, md:1} }}>
+      <Grid item borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} >  
+          <Typography component="h2" variant="h6" color="secondary.alt" textAlign="center" fontSize={35} mb={2} fontWeight="600">
           {`£${Number(price).toLocaleString()}`}
         </Typography>
         <Box
@@ -85,7 +87,8 @@ export const ListingView = ({
           padding={0}
           gap={3}
         sx={{ listStyle: "none" }}
-        m="auto"
+            m="auto"
+            mb={2}
         >
          
         <Box display="flex"  justifyContent="flex-start"  gap={0.5}>
@@ -112,20 +115,33 @@ export const ListingView = ({
         <Typography variant="subtitle1" color="grey.600" textAlign="center">{`${capitalizeFirstLetterOfEachWord(streetName)}, ${postcode.toUpperCase().split(" ")[0]}, ${capitalizeFirstLetterOfEachWord(city)} `}</Typography>
       </Grid>
 
-      <Grid item padding={3} borderColor="gray.400" display="flex" flexDirection="column" width="0.5fr" boxShadow={1} gap={1} m="auto">  
+        <Grid item sx={{ padding: { xs: 2.5, md: 4 } }} borderColor="gray.400" display="flex" flexDirection="column" 
+        justifyContent="space-around" alignItems="center" boxShadow={1} gap={1} m="auto" width="100%">  
         <Typography component="h5" variant="h6" color="grey.500" textAlign="left" fontWeight={500} >
           {capitalizeFirstLetterOfEachWord("more details...")}
-        </Typography>
+          </Typography>
+          <Box
+        component="ul"
+            display="flex"
+            flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="start"
+          padding={0}
+          gap={1}
+        sx={{ listStyle: "none"}}
+     
+          >
         {summaryLines.map((line, i) => 
-          
-          (i < summaryLines.length-1 && (<Typography component="p" variant="h6" color="grey.700" textAlign="left" fontSize="small" key={i}>
+          (i < summaryLines.length-1 && (<Typography component="li" color="grey.700" textAlign="left" fontSize="small" fontWeight={500} key={i}>
           {capitalizeFirstLetterOfEachWord(`${line}.`)}
         </Typography>))
         )
         }
+            
+        </Box>
       </Grid>
-
-        <Grid item padding={3} borderColor="gray.400" width="100%" display="flex" flexDirection="column" boxShadow={1} gap={1} position="relative" > 
+      </Grid>
+      <Grid item sx={{padding:{xs:1, md:3}, gridColumn:{xs:1, md:"-1/1"}, gridRow:{xs:3,md:2}}} borderColor="gray.400" width="100%" display="flex" flexDirection="column" boxShadow={1} gap={1} position="relative" > 
         {/* Container for random squares */}
         <div
           id="randomSquaresContainer"

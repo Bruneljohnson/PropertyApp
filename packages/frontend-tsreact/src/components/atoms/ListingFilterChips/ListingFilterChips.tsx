@@ -34,7 +34,7 @@ export const ListingFilterChips = ({
               height="32px"
               sx={{ borderRadius: 30 }}
               variant="rounded"
-              width={80}
+              width={70}
             />
           </ListItem>
         ))
@@ -42,7 +42,7 @@ export const ListingFilterChips = ({
           <ListItem key={`chip${i}`}>
             <Chip
               label={item.label}
-              size={size}
+              sx={{ size: { xs: "small", md: `${size}` }, fontSize: { xs: "10px", md: "16px" }, width: { xs: "100%" }, padding:{xs:"2px"} }}
               onClick={() => {
                 setSelection(item);
               }}

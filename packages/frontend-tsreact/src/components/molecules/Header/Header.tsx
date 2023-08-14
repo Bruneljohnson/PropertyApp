@@ -18,27 +18,27 @@ export const Header = (): JSX.Element => (
   >
     <Container
       maxWidth="xl"
-      sx={{ justifyContent: "center", alignItems: "center", display: "flex" }}
+      sx={{ justifyContent: "space-between", alignItems: "center", display:"flex"  }}
     >
-      <Grid container>
-        <Grid item xs={3} display="flex" justifyContent="center" ml={0} gap={2}>
+      <Grid container sx={{display: "grid", gridTemplateColumns:{xs:"1fr", md:"1fr 1fr"}, gap:1}}>
+        <Grid item display="flex" ml={0} gap={2} sx={{ gridColumn: { xs: 1 }, justifyContent: { xs: "space-between", md:"flex-start" }, width: "100%" }}>
           <Image image={logoImage} imageSizeNo={50} alt="PropertyApp logo"/>
           <Stack direction="row" alignItems="center" spacing={2} display="flex">
-        {NAVIGATION_ITEMS.map(({ label, url }, i) => (
-          <Link
-            underline="hover"
-            variant="body2"
-            key={i}
-            color="#ffffff"
-            component={RouterLink}
-            to={url}
-          >
-            {label}
-          </Link>
-        ))}
-      </Stack>
+            {NAVIGATION_ITEMS.map(({ label, url }, i) => (
+              <Link
+              underline="hover"
+              variant="body2"
+              key={i}
+              color="#ffffff"
+              component={RouterLink}
+              to={url}
+              >
+              {label}
+              </Link>
+          ))}
+          </Stack>
         </Grid>
-        <Grid item xs={6} display="flex" justifyContent="center">
+        <Grid item display="flex" justifyContent="center" mr={0} sx={{ gridColumn: { xs: 1, md: 2 } }}>
           <ListingSearch loading={false} />
         </Grid>
       </Grid>
