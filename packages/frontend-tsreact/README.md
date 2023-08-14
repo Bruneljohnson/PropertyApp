@@ -1,7 +1,5 @@
 # The PropertyApp TypeScript React Frontend Application
 
-Project Health:
-Please activate VPN before clicking the following links.
 main branch: https://github.com/Bruneljohnson/PropertyApp/tree/main/packages/frontend-react
 
 # Documentation
@@ -21,7 +19,7 @@ The PropertyApp is using a Monorepo with npm workspaces.
 
 - **Packages**: Is where the all the packages of our application live.
   - **Backend-Node**: Is where the backend NodeJS application in located.
-  - **Frontend-React**: Is where the frontend React application in located.
+  - **Frontend-TSReact**: Is where the frontend React application in located.
 
 The project structure is a a typical Typescript React Application
 
