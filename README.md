@@ -6,7 +6,7 @@ Project to provide users the ability to view current properties on the market an
 
 ## Frontend
 
-Please read the frontend README file[HERE](https://github.com/Bruneljohnson/PropertyApp/blob/main/packages/frontend-tsreact/README.md)
+Please read the frontend README file [HERE](https://github.com/Bruneljohnson/PropertyApp/blob/main/packages/frontend-tsreact/README.md)
 
 ### Frontend Quickstart
 
@@ -38,6 +38,9 @@ The front-end and back-end needs to run simultaneously in order for the app to s
 
 You will also need the environment variables.
 
+# APP Preview
+
+![The PropertyApp ](./docs/PropertyApp.png)
 # Next Steps
 
 From this example, the next steps would be the following:
