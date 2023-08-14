@@ -4,6 +4,12 @@ Project to provide users the ability to view current properties on the market an
 
 # Running the Application
 
+## APP
+
+```bash
+$ git clone https://github.com/Bruneljohnson/PropertyApp.git
+$ npm install
+```
 ## Frontend
 
 Please read the frontend README file [HERE](https://github.com/Bruneljohnson/PropertyApp/blob/main/packages/frontend-tsreact/README.md)
