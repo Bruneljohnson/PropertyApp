@@ -206,7 +206,23 @@
 <a name='L141'></a><a href='#L141'>141</a>
 <a name='L142'></a><a href='#L142'>142</a>
 <a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -326,7 +342,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -352,7 +384,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BathtubIcon from '@mui/icons-material/Bathtub';
 import BedIcon from '@mui/icons-material/Bed';
 import WeekendIcon from '@mui/icons-material/Weekend';
-import { Box, Grid, Typography, } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { Chip } from "@mui/material";
 import { useEffect } from "react";
 &nbsp;
@@ -410,22 +442,24 @@ export const ListingView = <span class="fstat-no" title="function not covered" >
     &lt;Grid
       container
       width="100%"
+      mx="auto"
       position="relative"
-      gridTemplateColumns="1fr 1fr 1fr"
+      sx={{ display:"grid", gridTemplateColumns: { xs: "1fr" },gridTemplateRows: { xs: "auto 1fr" }, alignItems:{xs:"center"}}}
       gap={1}
       
     &gt;
-      &lt;Grid item padding={4} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} gap={1}&gt;
-        &lt;Typography component="h1" variant="h6" color="gray.500" textAlign="left" fontSize={25} fontWeight="600" m={0} &gt;
+      &lt;Grid item sx={{ padding: { xs: 2.5, md: 4 }, gridColumn:{xs:1}, gridRow:{xs:1} }} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} gap={1}&gt;
+        &lt;Typography component="h1" variant="h6" color="gray.500" textAlign="left" sx={{ fontSize: { xs: 14,  md:18 } }} fontWeight="600" m={0} &gt;
           {`${bedrooms} Bedroom Property for Sale in ${postcode.toUpperCase().split(" ")[0]}.`}
         &lt;/Typography&gt;
-        &lt;Grid container sx={{ display: "flex" }} boxShadow={1} overflow="hidden"&gt;
+        &lt;Grid container sx={{ display: "flex", justifyContent:"center", alignItems:"center" }}  overflow="hidden"&gt;
           &lt;Image image={imageUrl} imageSizeNo={550} alt="Property Main"/&gt;
         &lt;/Grid&gt;
       &lt;/Grid&gt;
 &nbsp;
-      &lt;Grid item padding={3} borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} &gt;  
-       &lt;Typography component="h2" variant="h6" color="secondary.alt" textAlign="center" fontSize={30} fontWeight="600"&gt;
+      &lt;Grid item sx={{ padding: { xs: 2.5, md: 4 }, gridColumn: { xs: 1, md:2}, gridRow: { xs: 2, md:1} }}&gt;
+      &lt;Grid item borderColor="gray.400"  display="flex" flexDirection="column" boxShadow={1} &gt;  
+          &lt;Typography component="h2" variant="h6" color="secondary.alt" textAlign="center" fontSize={35} mb={2} fontWeight="600"&gt;
           {`£${Number(price).toLocaleString()}`}
         &lt;/Typography&gt;
         &lt;Box
@@ -436,7 +470,8 @@ export const ListingView = <span class="fstat-no" title="function not covered" >
           padding={0}
           gap={3}
         sx={{ listStyle: "none" }}
-        m="auto"
+            m="auto"
+            mb={2}
         &gt;
          
         &lt;Box display="flex"  justifyContent="flex-start"  gap={0.5}&gt;
@@ -463,20 +498,33 @@ export const ListingView = <span class="fstat-no" title="function not covered" >
         &lt;Typography variant="subtitle1" color="grey.600" textAlign="center"&gt;{`${capitalizeFirstLetterOfEachWord(streetName)}, ${postcode.toUpperCase().split(" ")[0]}, ${capitalizeFirstLetterOfEachWord(city)} `}&lt;/Typography&gt;
       &lt;/Grid&gt;
 &nbsp;
-      &lt;Grid item padding={3} borderColor="gray.400" display="flex" flexDirection="column" width="0.5fr" boxShadow={1} gap={1} m="auto"&gt;  
+        &lt;Grid item sx={{ padding: { xs: 2.5, md: 4 } }} borderColor="gray.400" display="flex" flexDirection="column" 
+        justifyContent="space-around" alignItems="center" boxShadow={1} gap={1} m="auto" width="100%"&gt;  
         &lt;Typography component="h5" variant="h6" color="grey.500" textAlign="left" fontWeight={500} &gt;
           {capitalizeFirstLetterOfEachWord("more details...")}
-        &lt;/Typography&gt;
+          &lt;/Typography&gt;
+          &lt;Box
+        component="ul"
+            display="flex"
+            flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="start"
+          padding={0}
+          gap={1}
+        sx={{ listStyle: "none"}}
+     
+          &gt;
         {summaryLines.map(<span class="fstat-no" title="function not covered" >(l</span>ine, i) =&gt; 
-          
-<span class="cstat-no" title="statement not covered" >          (i &lt; summaryLines.length-1 &amp;&amp; (&lt;Typography component="p" variant="h6" color="grey.700" textAlign="left" fontSize="small" key={i}&gt;</span>
+<span class="cstat-no" title="statement not covered" >          (i &lt; summaryLines.length-1 &amp;&amp; (&lt;Typography component="li" color="grey.700" textAlign="left" fontSize="small" fontWeight={500} key={i}&gt;</span>
           {capitalizeFirstLetterOfEachWord(`${line}.`)}
         &lt;/Typography&gt;))
         )
         }
+            
+        &lt;/Box&gt;
       &lt;/Grid&gt;
-&nbsp;
-        &lt;Grid item padding={3} borderColor="gray.400" width="100%" display="flex" flexDirection="column" boxShadow={1} gap={1} position="relative" &gt; 
+      &lt;/Grid&gt;
+      &lt;Grid item sx={{padding:{xs:1, md:3}, gridColumn:{xs:1, md:"-1/1"}, gridRow:{xs:3,md:2}}} borderColor="gray.400" width="100%" display="flex" flexDirection="column" boxShadow={1} gap={1} position="relative" &gt; 
         {/* Container for random squares */}
         &lt;div
           id="randomSquaresContainer"
@@ -499,7 +547,7 @@ export const ListingView = <span class="fstat-no" title="function not covered" >
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-14T07:14:30.734Z
+                at 2023-08-14T17:30:14.709Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

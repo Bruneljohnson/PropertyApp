@@ -6,7 +6,7 @@ import { validationErrorHandler } from "../middleware";
 
 const router = express.Router();
 
-// $ref: '#/components/schemas/PropertyListingInput'  &  $ref: '#/components/schemas/PropertyListingResponse' - can be found in swagger.schemas.ts
+// $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingInput'  &  $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingResponse' - can be found in swagger.schemas.ts
 
 /**
  * @swagger
@@ -21,7 +21,7 @@ const router = express.Router();
  *              content:
  *                  application/json:
  *                      schema:
- *                           $ref: '#/components/schemas/PropertyListingInput'
+ *                           $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingInput'
  *
  *
  *          responses:
@@ -36,7 +36,7 @@ const router = express.Router();
  *                                        type: string
  *                                        example: success!
  *                                   data:
- *                                        $ref: '#/components/schemas/PropertyListingResponse'
+ *                                        $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingResponse'
  *              500:
  *                  description: Internal server error!
  *                  content:
@@ -75,7 +75,7 @@ router.post("/", uploadPhoto, resizeImg, createListing);
  *                                   data:
  *                                        type: array
  *                                        items:
- *                                          $ref: '#/components/schemas/PropertyListingResponse'
+ *                                          $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingResponse'
  *
  *              500:
  *                  description: Internal server error!
@@ -119,7 +119,7 @@ router.get("/", checkGetAllListings(), validationErrorHandler, getAllListings);
  *                                        type: string
  *                                        example: success!
  *                                   data:
- *                                        $ref: '#/components/schemas/PropertyListingResponse'
+ *                                        $ref: '../models/model-types/swagger.schemas.ts/components/schemas/PropertyListingResponse'
  *
  *              404:
  *                  description: No property listing found with that ID!

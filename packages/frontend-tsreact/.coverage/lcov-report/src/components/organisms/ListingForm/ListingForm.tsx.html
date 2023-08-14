@@ -405,11 +405,7 @@
 <a name='L340'></a><a href='#L340'>340</a>
 <a name='L341'></a><a href='#L341'>341</a>
 <a name='L342'></a><a href='#L342'>342</a>
-<a name='L343'></a><a href='#L343'>343</a>
-<a name='L344'></a><a href='#L344'>344</a>
-<a name='L345'></a><a href='#L345'>345</a>
-<a name='L346'></a><a href='#L346'>346</a>
-<a name='L347'></a><a href='#L347'>347</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L343'></a><a href='#L343'>343</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -545,8 +541,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -724,8 +718,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -755,7 +747,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ArrowBack, CancelOutlined } from "@mui/icons-material";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CancelOutlined } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -895,17 +887,15 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
               /&gt;
 &nbsp;
               &lt;Box
-                display="grid"
-                gridTemplateColumns="1fr 1fr 1fr"
+                sx={{ display: "grid" , gridTemplateColumns:{xs:"1fr", md:"1fr 1fr 1fr" }, flex:1}}
                 justifyContent="center"
                 mb={4}
                 position="relative"
                 width="100%"
               &gt;
                 &lt;Typography
-                  display="flex"
                   mt={1}
-                  gridColumn={2}
+                  sx={{ gridColumn: { md:2}, fontSize:{xs:"20px", md:"24px"} }}
                   justifySelf="center"
                   alignSelf="center"
                   variant="h5"
@@ -915,7 +905,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                 &lt;/Typography&gt;
 &nbsp;
                 &lt;IconButton
-                  sx={{ justifySelf: "right", gridColumn: "3", fontSize: "50px" }}
+                  sx={{ justifySelf: {sx:"left",md:"right"}, gridColumn:{ md:3}, fontSize: "30px", position:{xs:"absolute",md:"relative"} }}
                   size="small"
                   onClick={<span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                    setOpenDialog(true);</span>
@@ -925,7 +915,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                 &lt;/IconButton&gt;
               &lt;/Box&gt;
 &nbsp;
-              &lt;Stepper activeStep={activeStep} alternativeLabel sx={{ width: "960px", mx: "auto", marginBottom:"30px" }}&gt;
+              &lt;Stepper activeStep={activeStep} alternativeLabel sx={{ width: {xs:"75%", md:"90%"}, mx: "auto", marginBottom:"15px" }}&gt;
                 {steps.map((label, index) =&gt; {
                   const isError = validatedSteps[index] === false;
                   const labelProps: {
@@ -934,7 +924,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                   } = {};
                   <span class="missing-if-branch" title="if path not taken" >I</span>if (isError) {
 <span class="cstat-no" title="statement not covered" >                    labelProps.optional = (</span>
-                      &lt;Typography variant="caption" color="error"&gt;
+                      &lt;Typography variant="caption" color="error" fontSize={11}&gt;
                         Failed to validate
                       &lt;/Typography&gt;
                     );
@@ -955,10 +945,10 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                 })}
               &lt;/Stepper&gt;
 &nbsp;
-              &lt;Stack minWidth="455px" spacing={3}&gt;
+              &lt;Stack sx={{ width: {xs:"90%", md:"95%"}, mx: "auto" }} &gt;
                 &lt;Box
                   component={Form}
-                  padding={5}
+                  sx={{ padding: {xs:2, md:5}, mx: "auto", borderStyle: "solid", borderWidth: 1 }}
                   bgcolor="#ffffff"
                   borderColor="grey.400"
                   borderRadius="10px"
@@ -966,7 +956,6 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                   width="100%"
                   my={5}
                   mx="auto"
-                  sx={{ borderStyle: "solid", borderWidth: 1 }}
                 &gt;
                   &lt;Stack spacing={3}&gt;
                     &lt;Typography variant="h5" fontWeight="bold"&gt;
@@ -1066,9 +1055,8 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
                       Please complete all required fields.
                     &lt;/Typography&gt;
                   )}
-                  &lt;Box mt={1} display="flex" justifyContent="space-between"&gt;
+                  &lt;Box mt={2} display="flex" justifyContent="space-between"&gt;
                     &lt;Button
-                      startIcon={&lt;ArrowBack /&gt;}
                       disabled={activeStep === 0}
                       variant="outlined"
                       onClick={<span class="fstat-no" title="function not covered" >() =&gt; {</span>
@@ -1108,7 +1096,7 @@ export const ListingForm = ({ title }: ListingFormProps): JSX.Element =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-14T07:14:30.734Z
+                at 2023-08-14T17:30:14.709Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
