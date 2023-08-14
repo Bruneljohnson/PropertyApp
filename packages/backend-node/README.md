@@ -171,7 +171,6 @@ $ npm test
 Every now and again clear the jest
 
 ```bash
-$ cd api
 $ npm run clear-jest
 ```
 
