@@ -40,7 +40,7 @@ You will also need the environment variables.
 
 # APP Preview
 
-![The PropertyApp ](./docs/PropertyApp.png)
+![The PropertyApp ](./packages/backend-node/docs/PropertyApp.png)
 # Next Steps
 
 From this example, the next steps would be the following:
