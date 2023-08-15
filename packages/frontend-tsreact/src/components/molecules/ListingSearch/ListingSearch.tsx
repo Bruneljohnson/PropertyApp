@@ -109,7 +109,7 @@ export const ListingSearch = ({ loading = true }: ListingSearchProps): JSX.Eleme
                 <Box key={i} display="flex" alignSelf="flex-start" alignItems="center">
                   <Box
                     component={Link}
-                    to={item.id}
+                    to={`/listings/${item.id}`}
                     py={1}
                     px={1.5}
                     bgcolor="grey.200"
